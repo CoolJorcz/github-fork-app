@@ -131,12 +131,12 @@ def user():
 
 @app.route('/fork')
 def fork():
-    return jsonify(github.post('/repos/octocat/hello-world/forks'))
+    return jsonify(github.post('/repos/CoolJorcz/github-fork-app/forks'))
 
 
 @app.route('/repo')
 def repo():
-    return jsonify(github.get('/repos/cenkalti/github-flask'))
+    return jsonify(github.get('/repos/CoolJorcz/github-fork-app/forks'))
 
 if __name__ == '__main__':
     init_db()

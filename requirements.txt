@@ -1,1 +1,3 @@
 Github-Flask
+Flask-SQLAlchemy
+python-dotenv

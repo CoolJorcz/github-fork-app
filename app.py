@@ -6,7 +6,7 @@
 
 from flask import Flask, request, g, session, redirect, url_for
 from flask import render_template_string, jsonify
-from flask_github import GitHub
+from flask_github import GitHub, GitHubError
 
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -116,7 +116,7 @@ def authorized(access_token):
 @app.route('/login')
 def login():
     if session.get('user_id', None) is None:
-        return github.authorize(scope="user,repo")
+        return github.authorize(scope="user,repo,write")
     else:
         return 'Already logged in'
 
@@ -129,10 +129,9 @@ def logout():
 def user():
     return jsonify(github.get('/user'))
 
-@app.route('/fork')
+@app.route('/fork', methods= ['POST', 'GET'])
 def fork():
-    return jsonify(github.post('/repos/CoolJorcz/github-fork-app/forks'))
-
+    return jsonify(github.post('/repos/PyGithub/PyGithub/forks'))
 
 @app.route('/repo')
 def repo():

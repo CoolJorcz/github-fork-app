@@ -1,2 +1,5 @@
+pipenv
+.DS_Store
 *.pem
+*.pyc
 .env

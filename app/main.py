@@ -72,9 +72,7 @@ def after_request(response):
 @app.route('/')
 def index():
     if g.user:
-        t = 'Hello! %s <a href="{{ url_for("user") }}">Get user</a> ' \
-            '<a href="{{ url_for("repo") }}">Get repo!</a> '\
-            '<a href="{{ url_for("fork") }}">Fork this project!</a> ' \
+        t = 'Hello! %s <a target="_blank" href="{{ url_for("fork") }}">Fork this project!</a> ' \
             '<a href="{{ url_for("logout") }}">Logout</a>'
         t %= g.user.github_login
     else:
@@ -126,13 +124,10 @@ def logout():
     session.pop('user_id', None)
     return redirect(url_for('index'))
 
-@app.route('/user')
-def user():
-    return jsonify(github.get('/user'))
-
 @app.route('/fork', methods= ['POST', 'GET'])
 def fork():
-    return jsonify(github.post('/repos/CoolJorcz/github-fork-app/forks'))
+    response = github.post('/repos/CoolJorcz/github-fork-app/forks')
+    return redirect(response['clone_url'])
 
 @app.route('/repo')
 def repo():

@@ -1,22 +1,22 @@
-##Github Fork App
+## Github Fork App
 
-####Description 
+#### Description 
 This is a small toy app to utilize a Github OAuth Application to interact with the Github API's POST /repos/{owner}/{repo}/forks endpoint
 
-###Requirements
+### Requirements
 
-####For development
+#### For development
 Python 3.7.5
 Pipenv
 
-####For deployment
+#### For deployment
 heroku
 
 
-###Setup
+### Setup
 
 
-####Github
+#### Github
 1. Settings -> Developer Settings
 2. OAuth Apps
 3. New OAuth App

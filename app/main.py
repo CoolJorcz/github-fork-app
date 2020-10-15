@@ -17,10 +17,10 @@ load_dotenv()
 
 import os
 
-DATABASE_URI = 'postgresql://localhost/fork-that'
+DATABASE_URI =  os.getenv('DATABASE_URI')
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG= True
-
+CSRF_ENABLED = True
 GITHUB_CLIENT_ID = os.getenv('GITHUB_CLIENT_ID')
 GITHUB_CLIENT_SECRET = os.getenv('GITHUB_CLIENT_SECRET')
 

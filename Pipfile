@@ -6,8 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flask = "*"
 gunicorn = "*"
+python-dotenv = "*"
+Flask = "*"
+GitHub-Flask = "*"
+Flask-SQLAlchemy = "*"
 
 [requires]
 python_version = "3.8"

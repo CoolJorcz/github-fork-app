@@ -7,7 +7,6 @@
 from flask import Flask, request, g, session, redirect, url_for
 from flask import render_template_string, jsonify
 from flask_github import GitHub, GitHubError
-from flask.ext.herok import Heroku
 
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -32,8 +31,6 @@ app.config.from_object(__name__)
 # setup github-flask
 github = GitHub(app)
 
-# setup Heroku
-heroku = Heroku(app)
 
 # setup sqlalchemy
 engine = create_engine(app.config['DATABASE_URI'])

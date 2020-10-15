@@ -17,7 +17,7 @@ load_dotenv()
 
 import os
 
-DATABASE_URI =  os.getenv('DATABASE_URI')
+DATABASE_URL =  os.getenv('DATABASE_URL')
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG= True
 CSRF_ENABLED = True
@@ -33,7 +33,7 @@ github = GitHub(app)
 
 
 # setup sqlalchemy
-engine = create_engine(app.config['DATABASE_URI'])
+engine = create_engine(app.config['DATABASE_URL'])
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))

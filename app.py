@@ -131,7 +131,7 @@ def user():
 
 @app.route('/fork', methods= ['POST', 'GET'])
 def fork():
-    return jsonify(github.post('/repos/PyGithub/PyGithub/forks'))
+    return jsonify(github.post('/repos/CoolJorcz/github-fork-app/forks'))
 
 @app.route('/repo')
 def repo():

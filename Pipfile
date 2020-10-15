@@ -11,6 +11,7 @@ python-dotenv = "*"
 Flask = "*"
 GitHub-Flask = "*"
 Flask-SQLAlchemy = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"

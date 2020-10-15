@@ -17,7 +17,7 @@ load_dotenv()
 
 import os
 
-DATABASE_URI = 'sqlite:////tmp/github-flask.db'
+DATABASE_URI = 'postgresql://localhost/fork-that'
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG= True
 

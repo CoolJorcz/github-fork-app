@@ -1,4 +1,5 @@
 Github-Flask
+psycopg2
 Flask-SQLAlchemy
 python-dotenv
 gunicorn

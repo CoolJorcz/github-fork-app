@@ -3,13 +3,10 @@
 #### Description 
 This is a small toy app to utilize a Github OAuth Application to interact with the Github API's POST /repos/{owner}/{repo}/forks endpoint
 
-<<<<<<< HEAD
 Sample application lives at https://fork-that-app.herokuapp.com/
 
 ###Requirements
-=======
-### Requirements
->>>>>>> b5fed9c2a3a97e4f15e33829043e51427da709bb
+
 
 #### For development
 Python 3.7.5

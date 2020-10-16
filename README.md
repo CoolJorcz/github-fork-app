@@ -1,28 +1,33 @@
-##Github Fork App
+## Github Fork App
 
-####Description 
+#### Description 
 This is a small toy app to utilize a Github OAuth Application to interact with the Github API's POST /repos/{owner}/{repo}/forks endpoint
 
+<<<<<<< HEAD
 Sample application lives at https://fork-that-app.herokuapp.com/
 
 ###Requirements
+=======
+### Requirements
+>>>>>>> b5fed9c2a3a97e4f15e33829043e51427da709bb
 
-####For development
+#### For development
 Python 3.7.5
 Pipenv
 
-####For deployment
+#### For deployment
 heroku
 
 
 ###Setup
 1. Create a virtual shell: `$ pipenv shell`
-1. Copy over .env file: `$ cp .env.example .env`
-2. Install dependencies `$ pipenv install -r requirements.txt`
-3. Launch a server: `$ gunicorn wsgi:app` 
+2. Copy over .env file: `$ cp .env.example .env`
+3. Install dependencies `$ pipenv install -r requirements.txt`
+4. Launch a server: `$ gunicorn wsgi:app` 
 
 
-####Github
+
+#### Github
 1. Settings -> Developer Settings
 2. OAuth Apps
 3. New OAuth App

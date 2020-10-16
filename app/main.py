@@ -7,54 +7,20 @@
 from flask import Flask, request, g, session, redirect, url_for
 from flask import render_template_string, jsonify
 from flask_github import GitHub, GitHubError
-
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from app.database import db_session, Database
+from app.models import User
 
 from dotenv import load_dotenv
 load_dotenv()
 
 import os
 
-DATABASE_URL = os.getenv('DATABASE_URL')
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG= True
-CSRF_ENABLED = True
-GITHUB_CLIENT_ID = os.getenv('GITHUB_CLIENT_ID')
-GITHUB_CLIENT_SECRET = os.getenv('GITHUB_CLIENT_SECRET')
-
 # setup flask
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_object(os.environ['APP_SETTINGS'])
 
 # setup github-flask
 github = GitHub(app)
-
-
-# setup sqlalchemy
-engine = create_engine(app.config['DATABASE_URL'])
-db_session = scoped_session(sessionmaker(autocommit=False,
-                                         autoflush=False,
-                                         bind=engine))
-Base = declarative_base()
-Base.query = db_session.query_property()
-
-
-def init_db():
-    Base.metadata.create_all(bind=engine)
-
-class User(Base):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True)
-    github_access_token = Column(String(255))
-    github_id = Column(Integer)
-    github_login = Column(String(255))
-
-    def __init__(self, github_access_token):
-        self.github_access_token = github_access_token
-
 
 @app.before_request
 def before_request():
@@ -134,5 +100,5 @@ def repo():
     return jsonify(github.get('/repos/CoolJorcz/github-fork-app/forks'))
 
 if __name__ == '__main__':
-    init_db()
+    Database.init_db()
     app.run(debug=True)
